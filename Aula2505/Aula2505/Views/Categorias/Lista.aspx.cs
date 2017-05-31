@@ -1,4 +1,5 @@
-﻿using Aula2505.Models;
+﻿using Aula2505.Controllers;
+using Aula2505.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,9 @@ namespace Aula2505.Views.Categorias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BaseDadosContainer contexto = new BaseDadosContainer();
+            CategoriasController ctrl = new CategoriasController();
 
-            var categorias = contexto.Categorias;
-
-            gvCategorias.DataSource = categorias.ToList();
+            gvCategorias.DataSource = ctrl.Listar();
             gvCategorias.DataBind();
         }
     }

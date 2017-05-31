@@ -1,4 +1,5 @@
-﻿using Aula2505.Models;
+﻿using Aula2505.Controllers;
+using Aula2505.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace Aula2505.Views.Categorias
 
         protected void bttSalvar_Click(object sender, EventArgs e)
         {
-            
-            BaseDadosContainer contexto = new BaseDadosContainer();
+
+            CategoriasController ctrl = new CategoriasController();
 
             Categoria categoria = new Categoria();
 
@@ -28,9 +29,7 @@ namespace Aula2505.Views.Categorias
 
             categoria.Ativo = ckbAtivo.Checked;
 
-            contexto.Categorias.Add(categoria);
-
-            contexto.SaveChanges();
+            ctrl.Adicionar(categoria);
 
         }
     }
