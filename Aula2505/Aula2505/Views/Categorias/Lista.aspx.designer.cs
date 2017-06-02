@@ -13,6 +13,15 @@ namespace Aula2505.Views.Categorias {
     public partial class Lista {
         
         /// <summary>
+        /// txtPesquisa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesquisa;
+        
+        /// <summary>
         /// gvCategorias control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace Aula2505.Views.Categorias {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvCategorias;
+        
+        /// <summary>
+        /// bttCadastrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bttCadastrar;
     }
 }
