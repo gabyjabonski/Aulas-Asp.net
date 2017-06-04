@@ -30,63 +30,32 @@ namespace Aula2505.Views.Categorias
         protected void gvCategorias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int linha = Convert.ToInt32(e.CommandArgument);
-
             int idObjeto = Convert.ToInt32(gvCategorias.Rows[linha].Cells[2].Text);
 
             string command = e.CommandName;
 
 
-            if (command.Equals("Editar"))
+            if (command.Equals("Excluir"))
             {
-                
+                Response.Redirect("Excluir.aspx");
             }
             else
             {
                 if (command.Equals("Editar"))
                 {
-                    gvCategorias_RowEditing(idObjeto);
+                    
+                    Response.Redirect("Editar.aspx");
                 }
             }
         }
 
-        protected void gvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void bttBuscar_Click(object sender, EventArgs e)
         {
             CategoriasController ctrl = new CategoriasController();
 
-            gvCategorias_RowCommand(ctrl.Editar(categoria));
+            Response.Cookies.Add(new HttpCookie("ID"), txtPesquisa.Text);
 
-            ctrl.Editar(categoria);
-        }
 
-        protected void gvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int index = e.RowIndex;
-
-            CategoriasController ctrl = new CategoriasController();
-
-            
-
-           
-        }
-
-        protected void gvCategorias_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            int i = e.RowIndex;
-
-            
-        }
-
-        protected void gvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-
-        }
-
-        protected void txtPesquisa_TextChanged(object sender, EventArgs e)
-        {
-            if (txtPesquisa.Text == "ID")
-            {
-
-            }
         }
     }
 }

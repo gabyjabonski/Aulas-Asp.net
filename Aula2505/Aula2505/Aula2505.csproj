@@ -214,7 +214,6 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Categorias\Cadastro.aspx" />
-    <Content Include="Views\Categorias\Detalhes.aspx" />
     <Content Include="Views\Categorias\Excluir.aspx" />
     <Content Include="Views\Categorias\Lista.aspx" />
     <Content Include="Web.config" />
@@ -308,13 +307,7 @@
     <Compile Include="Views\Categorias\Cadastro.aspx.designer.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Categorias\Detalhes.aspx.cs">
-      <DependentUpon>Detalhes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Categorias\Detalhes.aspx.designer.cs">
-      <DependentUpon>Detalhes.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Views\Categorias\Detalhe.cs" />
     <Compile Include="Views\Categorias\Excluir.aspx.cs">
       <DependentUpon>Excluir.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

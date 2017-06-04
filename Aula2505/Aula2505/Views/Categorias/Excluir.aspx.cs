@@ -1,4 +1,5 @@
 ﻿using Aula2505.Controllers;
+using Aula2505.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Aula2505.Views.Categorias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CategoriasController ctrl = new CategoriasController();
+            
 
-            ctrl.Excluir(categoria);
 
         }
+
+
     }
+   
 }
