@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d12631df7b9479d870b2c8bdfc2594b" Name="Diagram1" >
+        <EntityTypeShape EntityType="Biblioteca.Livro" Width="1.5" PointX="1.625" PointY="0.875" />
+        <EntityTypeShape EntityType="Biblioteca.Leitor" Width="1.5" PointX="1.875" PointY="4.125" />
+        <EntityTypeShape EntityType="Biblioteca.Emprestimo" Width="1.5" PointX="4.125" PointY="1.125" />
+        <AssociationConnector Association="Biblioteca.LeitorEmprestimo" />
+        <AssociationConnector Association="Biblioteca.LivroEmprestimo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

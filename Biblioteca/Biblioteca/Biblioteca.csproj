@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -135,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Emprestimo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -155,6 +164,13 @@
     </EntityDeploy>
     <Content Include="BaseDados.edmx.diagram">
       <DependentUpon>BaseDados.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Biblioteca.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Biblioteca.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Biblioteca.edmx.diagram">
+      <DependentUpon>Biblioteca.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -191,6 +207,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Leitor\CadastraLeitor.aspx" />
+    <Content Include="Views\Livro\CadastraLivro.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -226,6 +244,8 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\LeitorController.cs" />
+    <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +255,11 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Biblioteca.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Biblioteca.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -257,6 +282,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Leitor\CadastraLeitor.aspx.cs">
+      <DependentUpon>CadastraLeitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Leitor\CadastraLeitor.aspx.designer.cs">
+      <DependentUpon>CadastraLeitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Livro\CadastraLivro.aspx.cs">
+      <DependentUpon>CadastraLivro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Livro\CadastraLivro.aspx.designer.cs">
+      <DependentUpon>CadastraLivro.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

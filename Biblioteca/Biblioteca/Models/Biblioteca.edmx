@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Biblioteca.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="BibliotecaTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Biblioteca" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BibliotecaContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Livros" EntityType="Biblioteca.Livro" />
+          <EntitySet Name="Leitores" EntityType="Biblioteca.Leitor" />
+          <EntitySet Name="Emprestimos" EntityType="Biblioteca.Emprestimo" />
+          <AssociationSet Name="LeitorEmprestimo" Association="Biblioteca.LeitorEmprestimo">
+            <End Role="Leitor" EntitySet="Leitores" />
+            <End Role="Emprestimo" EntitySet="Emprestimos" />
+          </AssociationSet>
+          <AssociationSet Name="LivroEmprestimo" Association="Biblioteca.LivroEmprestimo">
+            <End Role="Livro" EntitySet="Livros" />
+            <End Role="Emprestimo" EntitySet="Emprestimos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Livro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Autor" Type="String" Nullable="false" />
+          <Property Name="Editora" Type="String" Nullable="false" />
+          <NavigationProperty Name="Emprestimo" Relationship="Biblioteca.LivroEmprestimo" FromRole="Livro" ToRole="Emprestimo" />
+        </EntityType>
+        <EntityType Name="Leitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="CPF" Type="String" Nullable="false" />
+          <Property Name="DataNascimento" Type="String" Nullable="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" />
+          <Property Name="Ativo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Emprestimo" Relationship="Biblioteca.LeitorEmprestimo" FromRole="Leitor" ToRole="Emprestimo" />
+        </EntityType>
+        <EntityType Name="Emprestimo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataEmprestimo" Type="String" Nullable="false" />
+          <Property Name="DataDevolucao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Leitor" Relationship="Biblioteca.LeitorEmprestimo" FromRole="Emprestimo" ToRole="Leitor" />
+          <Property Name="LeitorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Livro" Relationship="Biblioteca.LivroEmprestimo" FromRole="Emprestimo" ToRole="Livro" />
+          <Property Name="LivroId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="LeitorEmprestimo">
+          <End Type="Biblioteca.Leitor" Role="Leitor" Multiplicity="1" />
+          <End Type="Biblioteca.Emprestimo" Role="Emprestimo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leitor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprestimo">
+              <PropertyRef Name="LeitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LivroEmprestimo">
+          <End Type="Biblioteca.Livro" Role="Livro" Multiplicity="1" />
+          <End Type="Biblioteca.Emprestimo" Role="Emprestimo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emprestimo">
+              <PropertyRef Name="LivroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Biblioteca" />
+        <Alias Key="Target" Value="Biblioteca.Store" />
+        <EntityContainerMapping CdmEntityContainer="BibliotecaContainer" StorageEntityContainer="BibliotecaTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
